@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Buddy</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📚 Book Buddy</h1>
+        <form method="post" action="/result">
+            <label for="category">Choose a category:</label>
+            <select name="category" id="category" required onchange="showSubOptions()">
+                <option value="">--Select Category--</option>
+                <option value="age">Age</option>
+                <option value="genre">Genre</option>
+                <option value="mood">Mood</option>
+            </select>
+
+            <div id="suboption-container">
+                <label for="option">Choose an option:</label>
+                <select name="option" id="option" required>
+                    <option value="">--Select Option--</option>
+                </select>
+            </div>
+
+            <button type="submit">Get Suggestions</button>
+        </form>
+    </div>
+
+    <script>
+        const options = {
+            "age": ["10-15", "16-25", "26-40", "40+"],
+            "genre": [
+                "fantasy", "mystery", "romance", "mythology", "non-fiction",
+                "sci-fi", "horror", "historical", "thriller", "self-help"
+            ],
+            "mood": ["happy", "sad", "anxious", "adventurous", "hysteria", "nostalgia", "hatred"]
+        };
+
+        function showSubOptions() {
+            const category = document.getElementById("category").value;
+            const suboptionSelect = document.getElementById("option");
+            suboptionSelect.innerHTML = '<option value="">--Select Option--</option>';
+
+            if (category && options[category]) {
+                options[category].forEach(sub => {
+                    const opt = document.createElement("option");
+                    opt.value = sub;
+                    opt.textContent = sub.charAt(0).toUpperCase() + sub.slice(1);
+                    suboptionSelect.appendChild(opt);
+                });
+            }
+        }
+    </script>
+</body>
+</html>
