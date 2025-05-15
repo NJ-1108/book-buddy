@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Buddy Results</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📚 Book Buddy</h1>
+        <h2>Top Books for {{ option.capitalize() }} ({{ category.capitalize() }})</h2>
+
+        {% if suggestions %}
+            <ul class="book-list">
+                {% for book in suggestions %}
+                    <li><a href="{{ book.link }}" target="_blank">{{ book.title }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No suggestions found for this option.</p>
+        {% endif %}
+
+        <a href="/" class="back-link">🔙 Go Back</a>
+    </div>
+</body>
+</html>
