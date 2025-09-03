@@ -14,6 +14,9 @@
                 <option value="age">Age</option>
                 <option value="genre">Genre</option>
                 <option value="mood">Mood</option>
+                <option value="author">Author</option>
+                <option value="language">Language</option>
+
             </select>
 
             <div id="suboption-container">
@@ -31,10 +34,24 @@
         const options = {
             "age": ["10-15", "16-25", "26-40", "40+"],
             "genre": [
-                "fantasy", "mystery", "romance", "mythology", "non-fiction",
-                "sci-fi", "horror", "historical", "thriller", "self-help"
+                "fantasy", "mystery", "romance", "science fiction", "horror",
+                "biography", "historical fiction", "non-fiction", "thriller",
+                "popularity", "self-help", "comedy", "classics"
             ],
-            "mood": ["happy", "sad", "anxious", "adventurous", "hysteria", "nostalgia", "hatred"]
+            "mood": [
+                "happy", "sad", "motivated", "romantic", "adventurous",  
+                "curious", "scared", "relaxed", "bored"
+            ],
+            "author":[
+                "j.k. rowling", "george orwell", "jane austen", 
+                "stephen king", "agatha christie", "mark twain", 
+                "charles dickens", "ernest hemingway", "dan brown",
+                "haruki murakami"
+            ],
+            "language": [
+                "english", "hindi", "french", "spanish", "german",
+                "japanese", "russian", "chinese", "arabic", "korean"
+            ]
         };
 
         function showSubOptions() {
